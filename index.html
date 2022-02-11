@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <!-- Student Result  -->
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="card">
+          <div class="card-header">
+            <h4>Add New Student</h4>
+          </div>
+          <div class="card-body">
+            <form action="" id="st-form">
+              <p id="validation"></p>
+              <div class="form-group">
+                <input type="text" name="name" placeholder="Student Name" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" name="roll" placeholder="Roll Number" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" name="class" placeholder="Class" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" name="photo" placeholder="Photo" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="radio" name="gender" value="Male" id="male"><label class="ms-2" for="male">Male</label>
+                <input type="radio" name="gender" value="Female" id="female" class="ms-3"><label for="female"
+                  class="ms-2">Female</label>
+              </div>
+
+              <p>Marks</p>
+              <hr>
+              <div class="form-group">
+                <input type="text" name="bn" placeholder="Bangla" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" name="en" placeholder="English" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" name="math" placeholder="Math" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" name="s" placeholder="Science" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" name="ss" placeholder="Socail Science" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" name="rel" placeholder="Religion" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="submit" class=" btn btn-primary w-100">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="card">
+          <div class="card-header">
+            <input type="text" placeholder="Search student" id="search_student" class="form-control">
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Roll</th>
+                  <th>Class</th>
+                  <th>Gender</th>
+                  <th>Grade</th>
+                  <th>Cgpa</th>
+                  <th>Photo</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="show">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Single student result show Modal  -->
+  <div class="modal fade" id="student_result_show">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="modal-close d-block text-end">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <hr>
+
+
+            <div id="show_single_data">
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Import Export file and reset modal  -->
+
+  <div class="mk-modal">
+    <div class="modal-item">
+
+      <div class="modal-header">
+        <div class="header-top">
+          <h2>Portability</h2>
+          <button class="modal-close">&times;</button>
+        </div>
+        <div class="header-Bottom">
+          <button class="active">Export</button>
+          <button>Import</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p>Exporting your Divi Theme Options will create a JSON file that can be imported into a different website.</p>
+        <h3>Export File Name</h3>
+        <input type="text" placeholder="Divi Theme Options">
+      </div>
+      <div class="modal-footer">
+        <button>Import Divi theme options</button>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div class="container py-5">
+    <div class="mk-tab card" > 
+      <div class="tab-menu">
+        <div class="tab-header">
+          <h2><span>D</span>Divi Theme Options</h2>
+        </div>
+        <ul>
+          <li><a class="active" href="#General">General</a></li>
+          <li><a href="#Navigation">Navigation</a></li>
+          <li><a href="#Builder">Builder</a></li>
+          <li><a href="#Layout">Layout</a></li>
+          <li><a href="#Ads">Ads</a></li>
+          <li><a href="#SEO">SEO</a></li>
+          <li><a href="#Integration">Integration</a></li>
+          <li><a href="#Updates">Updates</a></li>
+          <li class="im-export">
+              <img class="export" src="./assets/img/arrow.png" alt="">
+              <img class="reset" src="./assets/img/reset.png" alt="">
+          </li>
+        </ul>
+      </div>
+
+    
+
+      <div class="tab-content">
+        <div class="tab-item active" id="General">
+          <!-- Sub item  -->
+          <div class="sub-tab-menu">
+            <ul>
+              <li><a class="active" href="#s-general">General</a></li>
+            </ul>
+          </div>
+          <div class="sub-content">
+            <div class="item">
+              <div class="title">
+                <h2>Logo</h2>
+              </div>
+              <div class="content">
+                <input type="text">
+                <button>RESET</button>
+                <button>UPLOAD</button>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="title">
+                <h2>Fixed Navigation Bar</h2>
+              </div>
+              <div class="content">
+                <div class="slider-btn">
+                  <span class="enabled">Enabled</span>
+                  <span class="sl-btn"></span>
+                  <span class="disabled">disabled</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="title">
+                <h2>Enable Divi Gallery</h2>
+              </div>
+              <div class="content">
+                <div class="slider-btn">
+                  <span class="enabled">Enabled</span>
+                  <span class="sl-btn"></span>
+                  <span class="disabled">disabled</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="title">
+                <h2>Color Pickers Default Palette</h2>
+              </div>
+              <div class="content">
+                <div class="color-picker">
+                  <input type="color" value="#000">
+                  <input type="color" value="#fff">
+                  <input type="color" value="#E02B20">
+                  <input type="color" value="#EDF000">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- Sub item  -->
+        </div>
+
+        <!-- Navigration section  -->
+        <div class="tab-item" id="Navigation">
+          <!-- Sub item  -->
+            <div class="sub-tab-menu navigation">
+              <ul>
+                <li><a class="active" href="#nav-pages">Pages</a></li>
+                <li><a href="#nav-categories">Categories</a></li>
+                <li><a href="#nav-gsettings">Genarel Settings</a></li>
+              </ul>
+            </div>
+            <div class="sub-content navigation-content">
+              <!-- Sub panel  -->
+              <div class="item active" id="nav-pages">
+                <div class="title">
+                  <h2>Exclude pages from the navigation bar</h2>
+                  <h2>Exclude pages from the navigation bar</h2>
+                  <h2>Exclude pages from the navigation bar</h2>
+                </div>
+                <div class="content">
+                  <p>Sample pages</p>
+                  <p>Sample pages</p>
+                  <p>Sample pages</p>
+                </div>
+              </div>
+              <!-- Sub panel  -->
+              <div class="item" id="nav-categories">
+                <div class="title">
+                  <h2>Exclude pages from the navigation bar</h2>
+                  <h2>Exclude pages from the navigation bar</h2>
+                </div>
+                <div class="content">
+                  <p>Sample pages</p>
+                  <p>Sample pages</p>
+                </div>
+              </div>
+              <!-- Sub panel  -->
+              <div class="item" id="nav-gsettings">
+                <div class="title">
+                  <h2>Exclude pages from the navigation bar</h2>
+                </div>
+                <div class="content">
+                  <p>Sample pages</p>
+                </div>
+              </div>
+              <!-- Sub panel  -->
+            </div>
+          <!-- Sub item  -->
+          </div>
+        <!-- Navigration section  -->
+
+    
+        <div class="tab-item" id="Builder">
+          <div class="tab-content-item">
+            <h2>Builder</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur harum id magni maiores, deserunt tenetur autem. Cum maxime eveniet animi.</p>
+          </div>
+        </div>
+        <div class="tab-item" id="Layout">
+          <div class="tab-content-item">
+            <h2>Layout</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur harum id magni maiores, deserunt tenetur autem. Cum maxime eveniet animi.</p>
+          </div>
+        </div>
+        <div class="tab-item" id="Ads">
+          <div class="tab-content-item">
+            <h2>Ads</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur harum id magni maiores, deserunt tenetur autem. Cum maxime eveniet animi.</p>
+          </div>
+        </div>
+        <div class="tab-item" id="SEO">
+          <div class="tab-content-item">
+            <h2>SEO</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur harum id magni maiores, deserunt tenetur autem. Cum maxime eveniet animi.</p>
+          </div>
+        </div>
+        <div class="tab-item" id="Integration">
+          <div class="tab-content-item">
+            <h2>Integration</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur harum id magni maiores, deserunt tenetur autem. Cum maxime eveniet animi.</p>
+          </div>
+        </div>
+        <div class="tab-item" id="Updates">
+          <div class="tab-content-item">
+            <h2>Updates</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur harum id magni maiores, deserunt tenetur autem. Cum maxime eveniet animi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="save">Save changes</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="./functions.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="./app.js"></script>
+</body>
+
+</html>
